@@ -5,6 +5,7 @@ import Layout from './Components/Layout/Layout'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Token } from './Pages/Token'
 import { Docs } from './Pages/Docs'
+import { KerongLcs } from './Pages/KerongLcs'
 
 function App() {
     return (
@@ -12,6 +13,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Layout />}>
                     <Route path="/" element={<Docs />} />
+                    <Route path="/kerong-lcs" element={<KerongLcs />} />
                     <Route path="/token" element={<Token />} />
                 </Route>
             </Routes>

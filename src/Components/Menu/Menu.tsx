@@ -74,9 +74,14 @@ function Menu() {
                     </List>
                 </Collapse>
 
-                <ListItemButton>
-                    <ListItemText primary="Меню 1" />
-                </ListItemButton>
+                <Link
+                    to={'/kerong-lcs'}
+                    style={{ textDecoration: 'none', color: 'black' }}
+                >
+                    <ListItemButton>
+                        <ListItemText primary="Kerong LCS" />
+                    </ListItemButton>
+                </Link>
                 <ListItemButton onClick={handleClick}>
                     <ListItemText primary="Меню 2" />
                     {open ? <ExpandLess /> : <ExpandMore />}

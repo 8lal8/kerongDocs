@@ -6,5 +6,6 @@ export const markdownConfig = {
             installApi: 'install-api.md',
         },
         token: 'token.md',
+        keronglcs: 'kerong-lcs-api.md',
     },
 }

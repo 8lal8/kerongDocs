@@ -20,17 +20,24 @@ const Layout = () => {
     }
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'row' }}>
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'row',
+                backgroundColor: '#181818',
+            }}
+        >
             <Menu />
             <div
                 style={{
                     display: 'flex',
                     flexDirection: 'column',
                     width: '100%',
-                    backgroundImage: `url(${bgImage})`,
+                    backgroundColor: 'white',
+                    borderRadius: '10px',
                     backgroundSize: 'cover',
-
-                    paddingLeft: '360px',
+                    margin: '20px',
+                    marginLeft: '360px',
                     minHeight: '100vh',
                 }}
             >
@@ -46,6 +53,8 @@ const Layout = () => {
                             overflowY: 'auto',
                             height: '100%',
                             paddingRight: '20px',
+                            paddingLeft: '40px',
+                            paddingBottom: '20px',
                         }}
                     >
                         <Outlet />
