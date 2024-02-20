@@ -7,6 +7,7 @@ import { Token } from './Pages/Token'
 import { Docs } from './Pages/Docs'
 import { KerongLcs } from './Pages/KerongLcs'
 import { Architecture } from './Pages/Architecture'
+import { Structure } from './Pages/Structure'
 
 function App() {
     return (
@@ -16,6 +17,7 @@ function App() {
                     <Route path="/" element={<Docs />} />
                     <Route path="/kerong-lcs" element={<KerongLcs />} />
                     <Route path="/token" element={<Token />} />
+                    <Route path="/structure" element={<Structure />} />
                     <Route path="/architecture" element={<Architecture />} />
                 </Route>
             </Routes>

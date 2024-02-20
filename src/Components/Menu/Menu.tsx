@@ -47,19 +47,19 @@ function Menu() {
                             justifyContent: 'center ',
                         }}
                     >
-                        <KerongLogo />
+                        <Link
+                            to={'/'}
+                            style={{ textDecoration: 'none', color: 'black' }}
+                        >
+                            <KerongLogo />
+                        </Link>
                     </ListSubheader>
                 }
             >
-                <Link
-                    to={'/'}
-                    style={{ textDecoration: 'none', color: 'black' }}
-                >
-                    <ListItemButton onClick={handleClick}>
-                        <ListItemText primary="Описание проекта" />
-                        {open ? <ExpandLess /> : <ExpandMore />}
-                    </ListItemButton>
-                </Link>
+                <ListItemButton onClick={handleClick}>
+                    <ListItemText primary="Описание проекта" />
+                    {open ? <ExpandLess /> : <ExpandMore />}
+                </ListItemButton>
 
                 <Collapse in={open} timeout="auto" unmountOnExit>
                     <List component="div" disablePadding>
@@ -69,6 +69,14 @@ function Menu() {
                         >
                             <ListItemButton sx={{ pl: 4 }}>
                                 <ListItemText primary="Архитектура системы" />
+                            </ListItemButton>
+                        </Link>
+                        <Link
+                            to={'/structure'}
+                            style={{ textDecoration: 'none', color: 'black' }}
+                        >
+                            <ListItemButton sx={{ pl: 4 }}>
+                                <ListItemText primary="Общая структура системы" />
                             </ListItemButton>
                         </Link>
                     </List>
@@ -82,17 +90,6 @@ function Menu() {
                         <ListItemText primary="Kerong LCS" />
                     </ListItemButton>
                 </Link>
-                <ListItemButton onClick={handleClick}>
-                    <ListItemText primary="Меню 2" />
-                    {open ? <ExpandLess /> : <ExpandMore />}
-                </ListItemButton>
-                <Collapse in={open} timeout="auto" unmountOnExit>
-                    <List component="div" disablePadding>
-                        <ListItemButton sx={{ pl: 4 }}>
-                            <ListItemText primary="Подменю 1" />
-                        </ListItemButton>
-                    </List>
-                </Collapse>
             </List>
         </Box>
     )

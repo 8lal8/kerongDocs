@@ -4,6 +4,7 @@ export const markdownConfig = {
         docs: {
             index: 'docs.md',
             architecture: 'architecture.md',
+            structure: 'structure.md',
             installApi: 'install-api.md',
         },
         token: 'token.md',

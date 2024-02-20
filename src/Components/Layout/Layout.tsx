@@ -9,11 +9,14 @@ const Layout = () => {
     const headerText = () => {
         let text
         switch (location.pathname) {
-            case '/token':
-                text = 'Получение токена.'
+            case '/architecture':
+                text = 'Архитектура системы'
                 break
-            case '/docs':
-                text = 'Документация по оборудованию'
+            case '/structure':
+                text = 'Общая структура системы'
+                break
+            case '/kerong-lcs':
+                text = 'KERONG LCS'
                 break
         }
         return text
