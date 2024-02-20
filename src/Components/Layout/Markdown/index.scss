@@ -1,0 +1,25 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,500;1,500&display=swap');
+
+.markdown-styles {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  h1 {
+    text-align: center;
+  }
+
+  p, em, li, ul {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+
+  strong {
+    font-weight: 600;
+  }
+}
