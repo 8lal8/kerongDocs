@@ -12,9 +12,14 @@ import { Link } from 'react-router-dom'
 
 function Menu() {
     const [open, setOpen] = React.useState(false)
+    const [openApi, setOpenApi] = React.useState(false)
 
     const handleClick = () => {
         setOpen(!open)
+    }
+
+    const handleClickApi = () => {
+        setOpenApi(!openApi)
     }
 
     return (
@@ -90,6 +95,48 @@ function Menu() {
                         <ListItemText primary="Kerong LCS" />
                     </ListItemButton>
                 </Link>
+
+                <ListItemButton onClick={handleClickApi}>
+                    <ListItemText primary="Описание Kerong API" />
+                    {openApi ? <ExpandLess /> : <ExpandMore />}
+                </ListItemButton>
+
+                <Collapse in={openApi} timeout="auto" unmountOnExit>
+                    <List component="div" disablePadding>
+                        <Link
+                            to={'/obj'}
+                            style={{ textDecoration: 'none', color: 'black' }}
+                        >
+                            <ListItemButton sx={{ pl: 4 }}>
+                                <ListItemText primary="Описание объектов" />
+                            </ListItemButton>
+                        </Link>
+                        <Link
+                            to={'/cu'}
+                            style={{ textDecoration: 'none', color: 'black' }}
+                        >
+                            <ListItemButton sx={{ pl: 4 }}>
+                                <ListItemText primary="Методы для плат KR-CU" />
+                            </ListItemButton>
+                        </Link>
+                        <Link
+                            to={'/bu'}
+                            style={{ textDecoration: 'none', color: 'black' }}
+                        >
+                            <ListItemButton sx={{ pl: 4 }}>
+                                <ListItemText primary="Методы для плат KR-BU" />
+                            </ListItemButton>
+                        </Link>
+                        <Link
+                            to={'/locks'}
+                            style={{ textDecoration: 'none', color: 'black' }}
+                        >
+                            <ListItemButton sx={{ pl: 4 }}>
+                                <ListItemText primary="Методы для замков" />
+                            </ListItemButton>
+                        </Link>
+                    </List>
+                </Collapse>
             </List>
         </Box>
     )

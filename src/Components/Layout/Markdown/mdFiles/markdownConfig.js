@@ -9,5 +9,28 @@ export const markdownConfig = {
         },
         token: 'token.md',
         keronglcs: 'kerong-lcs-api.md',
+        kerongApi: {
+            bu: {
+                deleteBu:"deleteBuBord.md",
+                infoBu: "infoBuBord.md",
+                listBu: "ListAddedBuBoards.md",
+                regBu: "registrBuBord.md",
+                updateBu: "updateBuBord.md"
+            },
+            cu: {
+                getTimeAll: "getValueTimeLockAllCuBord.md",
+                getTime: "getValueTimeLockCuBord.md",
+                installTime: "instalTimeLock.md",
+                installTimeAll : "instalTimeLockAllCuBord.md",
+                listCu : "ListCCuBord.md",
+            },
+            locks: {
+                listLocks: "ListLock.md",
+                openLock: "openLock.md",
+                status : "statusLock.md",
+            },
+            objectsDescription: "descriptionObjects.md"
+
+        }
     },
 }

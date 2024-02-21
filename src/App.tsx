@@ -8,6 +8,10 @@ import { Docs } from './Pages/Docs'
 import { KerongLcs } from './Pages/KerongLcs'
 import { Architecture } from './Pages/Architecture'
 import { Structure } from './Pages/Structure'
+import {KerongApiObj} from "./Pages/KerongApiObj";
+import {KerongApiLocks} from "./Pages/KerongApiLocks";
+import {KerongApiBu} from "./Pages/KerongApiBu";
+import {KerongApiCu} from "./Pages/KerongApiCu";
 
 function App() {
     return (
@@ -18,6 +22,10 @@ function App() {
                     <Route path="/kerong-lcs" element={<KerongLcs />} />
                     <Route path="/token" element={<Token />} />
                     <Route path="/structure" element={<Structure />} />
+                    <Route path="/cu" element={<KerongApiCu />} />
+                    <Route path="/bu" element={<KerongApiBu />} />
+                    <Route path="/obj" element={<KerongApiObj />} />
+                    <Route path="/locks" element={<KerongApiLocks />} />
                     <Route path="/architecture" element={<Architecture />} />
                 </Route>
             </Routes>
