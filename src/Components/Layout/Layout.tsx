@@ -27,7 +27,7 @@ const Layout = () => {
             style={{
                 display: 'flex',
                 flexDirection: 'row',
-                backgroundColor: '#181818',
+                backgroundColor: '#282c34',
             }}
         >
             <Menu />
@@ -36,7 +36,7 @@ const Layout = () => {
                     display: 'flex',
                     flexDirection: 'column',
                     width: '100%',
-                    backgroundColor: 'white',
+                    backgroundColor: '#282c34',
                     borderRadius: '10px',
                     backgroundSize: 'cover',
                     margin: '20px',
@@ -44,7 +44,7 @@ const Layout = () => {
                     minHeight: '100vh',
                 }}
             >
-                <div>
+                <div style={{ color: 'white' }}>
                     <Header
                         textHeader={`${headerText() === undefined ? '' : headerText()}`}
                     />
@@ -52,6 +52,7 @@ const Layout = () => {
                 <div>
                     <div
                         style={{
+                            color: 'white',
                             flex: 1,
                             overflowY: 'auto',
                             height: '100%',

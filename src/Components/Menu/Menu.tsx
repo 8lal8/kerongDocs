@@ -128,7 +128,10 @@ function Menu() {
                             </ListItemButton>
                         </Link>
 
-                        <ListItemButton onClick={handleClickKerongLcsUsers}>
+                        <ListItemButton
+                            onClick={handleClickKerongLcsUsers}
+                            sx={{ pl: 4 }}
+                        >
                             <ListItemText primary="Пользователи" />
                             {openKerongLcsUsers ? (
                                 <ExpandLess />
