@@ -20,8 +20,22 @@ code {
 
 thead {
   background-color: #FFEEC2;
+  padding: 5px;
 }
 tbody {
   background-color: #F6F6F6;
 }
 
+pre {
+  background-color: #F6F6F6;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+th {
+  padding: 5px;
+}
+
+td {
+  padding: 6px;
+}
