@@ -64,7 +64,6 @@ function App() {
                     <Route path="/post-user" element={<PostUser />} />
                     <Route path="/post-role" element={<PostRole />} />
                     <Route path="/del-user" element={<DelUser />} />
-                    <Route path="/del-role" element={<DelRole />} />
                     <Route path="/patch-role" element={<PatchRole />} />
                     <Route path="/patch-user" element={<PatchUser />} />
                 </Route>

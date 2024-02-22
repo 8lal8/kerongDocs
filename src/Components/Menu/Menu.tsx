@@ -279,28 +279,7 @@ function Menu() {
                                     <ListItemText primary="Создать роль" />
                                 </ListItemButton>
                             </Link>
-                            <Link
-                                to={'/del-role'}
-                                style={{
-                                    textDecoration: 'none',
-                                    color: 'black',
-                                }}
-                            >
-                                <ListItemButton
-                                    sx={{
-                                        pl: 4,
-                                        backgroundColor: 'rgba(249,62,62,.1)',
-                                    }}
-                                >
-                                    <ListItemIcon>
-                                        <ListItemText
-                                            primary="DEL"
-                                            sx={{ color: '#f93e3e' }}
-                                        />
-                                    </ListItemIcon>
-                                    <ListItemText primary="Удалить роль" />
-                                </ListItemButton>
-                            </Link>
+
                             <Link
                                 to={'/del-user'}
                                 style={{
