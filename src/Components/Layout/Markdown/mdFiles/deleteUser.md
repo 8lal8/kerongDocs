@@ -23,5 +23,6 @@ curl:
 ```
 curl -X 'DELETE' \
   'http://localhost:9778/api/v1/users/21' \
-  -H 'accept: application/json'
+  -H 'accept: application/json' \
+  -H 'Authorization: Bearer eyJ*********E9s'
 ```
