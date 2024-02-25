@@ -1,9 +1,10 @@
 .header {
-  width: auto;
-  justify-content: center;
+  width: 100%;
   display: flex;
   align-items: center;
-  text-align: center;
-  padding-right: 30px;
-
+  text-align: start;
+  background-color: #20232a;
+  padding: 5px;
+  position: fixed;
+  z-index: 1;
 }

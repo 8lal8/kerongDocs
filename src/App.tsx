@@ -29,6 +29,14 @@ import { PostUser } from './Pages/PostUser'
 import { DelUser } from './Pages/DelUser'
 import { PatchRole } from './Pages/PatchRole'
 import { PatchUser } from './Pages/PatchUser'
+import {GetIdentifiers} from "./Pages/GetIdentifiers";
+import {GetIdentifiersId} from "./Pages/GetIdentifiersId";
+import {GetTypeIdentifiers} from "./Pages/GetTypeIdentifiers";
+import {GetTypeIdentifiersId} from "./Pages/GetTypeIdentifiersId";
+import {PostIdentifiers} from "./Pages/PostIdentifiers";
+import {PostTypeIdentifiers} from "./Pages/PostTypeIdentifiers";
+import {PatchIdentifiersId} from "./Pages/PatchIdentifiersId";
+import {PatchTypeIdentifiersId} from "./Pages/PatchTypeIdentifiersId";
 
 function App() {
     return (
@@ -66,6 +74,15 @@ function App() {
                     <Route path="/del-user" element={<DelUser />} />
                     <Route path="/patch-role" element={<PatchRole />} />
                     <Route path="/patch-user" element={<PatchUser />} />
+
+                    <Route path="/get-identif" element={<GetIdentifiers />} />
+                    <Route path="/get-identif-id" element={<GetIdentifiersId />} />
+                    <Route path="/get-type-identif" element={<GetTypeIdentifiers />} />
+                    <Route path="/get-type-identif-id" element={<GetTypeIdentifiersId />} />
+                    <Route path="/post-identif" element={<PostIdentifiers />} />
+                    <Route path="/post-type-identif" element={<PostTypeIdentifiers />} />
+                    <Route path="/patch-identif" element={<PatchIdentifiersId />} />
+                    <Route path="/patch-type-identif" element={<PatchTypeIdentifiersId />} />
                 </Route>
             </Routes>
         </BrowserRouter>

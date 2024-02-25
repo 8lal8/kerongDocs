@@ -7,7 +7,7 @@ import Collapse from '@mui/material/Collapse'
 import ExpandLess from '@mui/icons-material/ExpandLess'
 import ExpandMore from '@mui/icons-material/ExpandMore'
 import { ReactComponent as KerongLogo } from '../assets/kerong-logo.svg'
-import { Box, ListItemIcon } from '@mui/material'
+import {Box, Divider, ListItemIcon} from '@mui/material'
 import { Link } from 'react-router-dom'
 
 function Menu() {
@@ -18,6 +18,8 @@ function Menu() {
     const [openBU, setOpenBU] = React.useState(false)
     const [openKerongLcs, setOpenKerongLcs] = React.useState(false)
     const [openKerongLcsUsers, setOpenKerongLcsUsers] = React.useState(false)
+    const [openKerongLcsIdentifiers, setOpenKerongLcsIdentifiers] = React.useState(false)
+
 
     const handleClick = () => {
         setOpen(!open)
@@ -42,6 +44,10 @@ function Menu() {
         setOpenKerongLcsUsers(!openKerongLcsUsers)
     }
 
+    const handleClickKerongLcsIdentifiers = () => {
+        setOpenKerongLcsIdentifiers(!openKerongLcsIdentifiers)
+    }
+
     return (
         <Box
             sx={{
@@ -51,7 +57,7 @@ function Menu() {
                 left: 0,
                 width: 320,
                 overflowY: 'auto',
-                bgcolor: 'white',
+                bgcolor: '#F4F5F5',
                 '&::-webkit-scrollbar': { width: '8px' },
                 '&::-webkit-scrollbar-track': { background: '#f1f1f1' },
                 '&::-webkit-scrollbar-thumb': { background: '#888' },
@@ -66,6 +72,7 @@ function Menu() {
                         component="div"
                         id="nested-list-subheader"
                         style={{
+                            backgroundColor:"#F4F5F5",
                             paddingTop: '15px',
                             paddingBottom: '15px',
                             display: 'flex',
@@ -93,7 +100,7 @@ function Menu() {
                             style={{ textDecoration: 'none', color: 'black' }}
                         >
                             <ListItemButton sx={{ pl: 4 }}>
-                                <ListItemText primary="Архитектура системы" />
+                                <ListItemText secondary="Архитектура системы" />
                             </ListItemButton>
                         </Link>
                         <Link
@@ -101,12 +108,12 @@ function Menu() {
                             style={{ textDecoration: 'none', color: 'black' }}
                         >
                             <ListItemButton sx={{ pl: 4 }}>
-                                <ListItemText primary="Общая структура системы" />
+                                <ListItemText secondary="Общая структура системы" />
                             </ListItemButton>
                         </Link>
                     </List>
                 </Collapse>
-
+<Divider />
                 <Link
                     to={'/kerong-lcs'}
                     style={{ textDecoration: 'none', color: 'black' }}
@@ -124,11 +131,14 @@ function Menu() {
                             style={{ textDecoration: 'none', color: 'black' }}
                         >
                             <ListItemButton sx={{ pl: 4 }}>
-                                <ListItemText primary="Аутентификация" />
+                                <ListItemText secondary="Аутентификация" />
                             </ListItemButton>
                         </Link>
 
-                        <ListItemButton onClick={handleClickKerongLcsUsers}>
+                        <ListItemButton
+                            onClick={handleClickKerongLcsUsers}
+                            sx={{ pl: 4 }}
+                        >
                             <ListItemText primary="Пользователи" />
                             {openKerongLcsUsers ? (
                                 <ExpandLess />
@@ -163,7 +173,7 @@ function Menu() {
                                                 sx={{ color: '#61affe' }}
                                             />
                                         </ListItemIcon>
-                                        <ListItemText primary="Список пользователей" />
+                                        <ListItemText secondary="Список пользователей" />
                                     </ListItemButton>
                                 </Link>
                             </List>
@@ -186,7 +196,7 @@ function Menu() {
                                             sx={{ color: '#61affe' }}
                                         />
                                     </ListItemIcon>
-                                    <ListItemText primary="Пользователя по идентификатору" />
+                                    <ListItemText secondary="Пользователя по идентификатору" />
                                 </ListItemButton>
                             </Link>
                             <Link
@@ -208,7 +218,7 @@ function Menu() {
                                             sx={{ color: '#61affe' }}
                                         />
                                     </ListItemIcon>
-                                    <ListItemText primary="Список ролей" />
+                                    <ListItemText secondary="Список ролей" />
                                 </ListItemButton>
                             </Link>
                             <Link
@@ -230,7 +240,7 @@ function Menu() {
                                             sx={{ color: '#61affe' }}
                                         />
                                     </ListItemIcon>
-                                    <ListItemText primary="Роль по идентификатору пользователя" />
+                                    <ListItemText secondary="Роль по идентификатору пользователя" />
                                 </ListItemButton>
                             </Link>
                             <Link
@@ -254,7 +264,7 @@ function Menu() {
                                             }}
                                         />
                                     </ListItemIcon>
-                                    <ListItemText primary="Создать пользователя" />
+                                    <ListItemText secondary="Создать пользователя" />
                                 </ListItemButton>
                             </Link>
                             <Link
@@ -276,7 +286,7 @@ function Menu() {
                                             sx={{ color: '#49cc90' }}
                                         />
                                     </ListItemIcon>
-                                    <ListItemText primary="Создать роль" />
+                                    <ListItemText secondary="Создать роль" />
                                 </ListItemButton>
                             </Link>
 
@@ -299,7 +309,7 @@ function Menu() {
                                             sx={{ color: '#f93e3e' }}
                                         />
                                     </ListItemIcon>
-                                    <ListItemText primary="Удалить пользователя" />
+                                    <ListItemText secondary="Удалить пользователя" />
                                 </ListItemButton>
                             </Link>
                             <Link
@@ -321,7 +331,7 @@ function Menu() {
                                             sx={{ color: '#50e3c2' }}
                                         />
                                     </ListItemIcon>
-                                    <ListItemText primary="Изменить роль" />
+                                    <ListItemText secondary="Изменить роль" />
                                 </ListItemButton>
                             </Link>
                             <Link
@@ -343,13 +353,212 @@ function Menu() {
                                             sx={{ color: '#50e3c2' }}
                                         />
                                     </ListItemIcon>
-                                    <ListItemText primary="Изменить пользователя" />
+                                    <ListItemText secondary="Изменить пользователя" />
+                                </ListItemButton>
+                            </Link>
+                        </Collapse>
+                        <ListItemButton
+                            onClick={handleClickKerongLcsIdentifiers}
+                            sx={{ pl: 4 }}
+                        >
+                            <ListItemText primary="Идентификаторы" />
+                            {openKerongLcsIdentifiers ? (
+                                <ExpandLess />
+                            ) : (
+                                <ExpandMore />
+                            )}
+                        </ListItemButton>
+
+                        <Collapse
+                            in={openKerongLcsIdentifiers}
+                            timeout="auto"
+                            unmountOnExit
+                        >
+                            <List component="div" disablePadding>
+                                <Link
+                                    to={'/get-identif'}
+                                    style={{
+                                        textDecoration: 'none',
+                                        color: 'black',
+                                    }}
+                                >
+                                    <ListItemButton
+                                        sx={{
+                                            pl: 4,
+                                            backgroundColor:
+                                                'rgba(97,175,254,.1)',
+                                        }}
+                                    >
+                                        <ListItemIcon>
+                                            <ListItemText
+                                                primary="GET"
+                                                sx={{ color: '#61affe' }}
+                                            />
+                                        </ListItemIcon>
+                                        <ListItemText secondary="Список идентификаторов" />
+                                    </ListItemButton>
+                                </Link>
+                            </List>
+                            <Link
+                                to={'/get-identif-id'}
+                                style={{
+                                    textDecoration: 'none',
+                                    color: 'black',
+                                }}
+                            >
+                                <ListItemButton
+                                    sx={{
+                                        pl: 4,
+                                        backgroundColor: 'rgba(97,175,254,.1)',
+                                    }}
+                                >
+                                    <ListItemIcon>
+                                        <ListItemText
+                                            primary="GET"
+                                            sx={{ color: '#61affe' }}
+                                        />
+                                    </ListItemIcon>
+                                    <ListItemText secondary="Идентификатор по его id" />
+                                </ListItemButton>
+                            </Link>
+                            <Link
+                                to={'/get-type-identif'}
+                                style={{
+                                    textDecoration: 'none',
+                                    color: 'black',
+                                }}
+                            >
+                                <ListItemButton
+                                    sx={{
+                                        pl: 4,
+                                        backgroundColor: 'rgba(97,175,254,.1)',
+                                    }}
+                                >
+                                    <ListItemIcon>
+                                        <ListItemText
+                                            primary="GET"
+                                            sx={{ color: '#61affe' }}
+                                        />
+                                    </ListItemIcon>
+                                    <ListItemText secondary="Список типов идентификаторов" />
+                                </ListItemButton>
+                            </Link>
+                            <Link
+                                to={'/get-type-identif-id'}
+                                style={{
+                                    textDecoration: 'none',
+                                    color: 'black',
+                                }}
+                            >
+                                <ListItemButton
+                                    sx={{
+                                        pl: 4,
+                                        backgroundColor: 'rgba(97,175,254,.1)',
+                                    }}
+                                >
+                                    <ListItemIcon>
+                                        <ListItemText
+                                            primary="GET"
+                                            sx={{ color: '#61affe' }}
+                                        />
+                                    </ListItemIcon>
+                                    <ListItemText secondary="Тип идентификатора по его id" />
+                                </ListItemButton>
+                            </Link>
+                            <Link
+                                to={'/post-identif'}
+                                style={{
+                                    textDecoration: 'none',
+                                    color: 'black',
+                                }}
+                            >
+                                <ListItemButton
+                                    sx={{
+                                        pl: 4,
+                                        backgroundColor: 'rgba(73,204,144,.1)',
+                                    }}
+                                >
+                                    <ListItemIcon>
+                                        <ListItemText
+                                            primary="POST"
+                                            sx={{
+                                                color: '#49cc90',
+                                            }}
+                                        />
+                                    </ListItemIcon>
+                                    <ListItemText secondary="Создать идентификатор" />
+                                </ListItemButton>
+                            </Link>
+                            <Link
+                                to={'/post-type-identif'}
+                                style={{
+                                    textDecoration: 'none',
+                                    color: 'black',
+                                }}
+                            >
+                                <ListItemButton
+                                    sx={{
+                                        pl: 4,
+                                        backgroundColor: 'rgba(73,204,144,.1)',
+                                    }}
+                                >
+                                    <ListItemIcon>
+                                        <ListItemText
+                                            primary="POST"
+                                            sx={{ color: '#49cc90' }}
+                                        />
+                                    </ListItemIcon>
+                                    <ListItemText secondary="Создать тип идентификатора" />
+                                </ListItemButton>
+                            </Link>
+                            <Link
+                                to={'/patch-identif'}
+                                style={{
+                                    textDecoration: 'none',
+                                    color: 'black',
+                                }}
+                            >
+                                <ListItemButton
+                                    sx={{
+                                        pl: 4,
+                                        backgroundColor: 'rgba(73,204,144,.1)',
+                                    }}
+                                >
+                                    <ListItemIcon>
+                                        <ListItemText
+                                            primary="PATCH"
+                                            sx={{ color: '#50e3c2' }}
+                                        />
+                                    </ListItemIcon>
+                                    <ListItemText secondary="Изменить идентификатор" />
+                                </ListItemButton>
+                            </Link>
+                            <Link
+                                to={'/patch-type-identif'}
+                                style={{
+                                    textDecoration: 'none',
+                                    color: 'black',
+                                }}
+                            >
+                                <ListItemButton
+                                    sx={{
+                                        pl: 4,
+                                        backgroundColor: 'rgba(73,204,144,.1)',
+                                    }}
+                                >
+                                    <ListItemIcon>
+                                        <ListItemText
+                                            primary="PATCH"
+                                            sx={{ color: '#50e3c2' }}
+                                        />
+                                    </ListItemIcon>
+                                    <ListItemText secondary="Изменить тип идентификатора" />
                                 </ListItemButton>
                             </Link>
                         </Collapse>
                     </List>
                 </Collapse>
-
+                <Divider />
                 <ListItemButton onClick={handleClickApi}>
                     <ListItemText primary="Описание Kerong API" />
                     {openApi ? <ExpandLess /> : <ExpandMore />}
@@ -362,7 +571,7 @@ function Menu() {
                             style={{ textDecoration: 'none', color: 'black' }}
                         >
                             <ListItemButton sx={{ pl: 4 }}>
-                                <ListItemText primary="Описание объектов" />
+                                <ListItemText secondary="Описание объектов" />
                             </ListItemButton>
                         </Link>
                         <Link
@@ -370,7 +579,7 @@ function Menu() {
                             style={{ textDecoration: 'none', color: 'black' }}
                         >
                             <ListItemButton sx={{ pl: 4 }}>
-                                <ListItemText primary="Методы для плат KR-CU" />
+                                <ListItemText secondary="Методы для плат KR-CU" />
                             </ListItemButton>
                         </Link>
                         <Link
@@ -378,7 +587,7 @@ function Menu() {
                             style={{ textDecoration: 'none', color: 'black' }}
                         >
                             <ListItemButton sx={{ pl: 4 }}>
-                                <ListItemText primary="Методы для плат KR-BU" />
+                                <ListItemText secondary="Методы для плат KR-BU" />
                             </ListItemButton>
                         </Link>
                         <Link
@@ -386,12 +595,12 @@ function Menu() {
                             style={{ textDecoration: 'none', color: 'black' }}
                         >
                             <ListItemButton sx={{ pl: 4 }}>
-                                <ListItemText primary="Методы для замков" />
+                                <ListItemText secondary="Методы для замков" />
                             </ListItemButton>
                         </Link>
                     </List>
                 </Collapse>
-
+                <Divider />
                 <ListItemButton onClick={handleClickEquipment}>
                     <ListItemText primary="Используемое оборудование" />
                     {openEquipment ? <ExpandLess /> : <ExpandMore />}
@@ -414,7 +623,7 @@ function Menu() {
                                     }}
                                 >
                                     <ListItemButton sx={{ pl: 4 }}>
-                                        <ListItemText primary="Иструкция к KR-CU 16" />
+                                        <ListItemText secondary="Иструкция к KR-CU 16" />
                                     </ListItemButton>
                                 </Link>
                                 <Link
@@ -425,7 +634,7 @@ function Menu() {
                                     }}
                                 >
                                     <ListItemButton sx={{ pl: 4 }}>
-                                        <ListItemText primary="Паспорт платы KR-CU 16" />
+                                        <ListItemText secondary="Паспорт платы KR-CU 16" />
                                     </ListItemButton>
                                 </Link>
 
@@ -437,7 +646,7 @@ function Menu() {
                                     }}
                                 >
                                     <ListItemButton sx={{ pl: 4 }}>
-                                        <ListItemText primary="Инструкция к плате KR-CU 48" />
+                                        <ListItemText secondary="Инструкция к плате KR-CU 48" />
                                     </ListItemButton>
                                 </Link>
                                 <Link
@@ -448,7 +657,7 @@ function Menu() {
                                     }}
                                 >
                                     <ListItemButton sx={{ pl: 4 }}>
-                                        <ListItemText primary="Паспорт платы KR-CU 48" />
+                                        <ListItemText secondary="Паспорт платы KR-CU 48" />
                                     </ListItemButton>
                                 </Link>
 
@@ -460,7 +669,7 @@ function Menu() {
                                     }}
                                 >
                                     <ListItemButton sx={{ pl: 4 }}>
-                                        <ListItemText primary="Инструкция к плате KR-CU 48B" />
+                                        <ListItemText secondary="Инструкция к плате KR-CU 48B" />
                                     </ListItemButton>
                                 </Link>
                                 <Link
@@ -471,7 +680,7 @@ function Menu() {
                                     }}
                                 >
                                     <ListItemButton sx={{ pl: 4 }}>
-                                        <ListItemText primary="Паспорт платы KR-CU 48B" />
+                                        <ListItemText secondary="Паспорт платы KR-CU 48B" />
                                     </ListItemButton>
                                 </Link>
                             </List>
@@ -550,6 +759,7 @@ function Menu() {
                         {/*</Link>*/}
                     </List>
                 </Collapse>
+                <Divider />
             </List>
         </Box>
     )

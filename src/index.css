@@ -5,12 +5,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #181818;
+  background-color: #282c34;
 
 }
 
 html{
-  background-color: #181818;
+  background-color: #282c34;
 }
 
 code {
@@ -19,23 +19,48 @@ code {
 }
 
 thead {
-  background-color: #FFEEC2;
   padding: 5px;
+  color: #D2D2D2
+;
 }
 tbody {
-  background-color: #F6F6F6;
+
+  color: #D2D2D2
+;
 }
 
 pre {
-  background-color: #F6F6F6;
+  border: 1px solid grey;
   border-radius: 10px;
   padding: 10px;
+  color: #D2D2D2
+;
 }
 
 th {
+  border: 1px solid grey;
   padding: 5px;
+  color: #D2D2D2
+;
 }
 
 td {
+  margin: 0px;
+  border: 1px solid grey;
   padding: 6px;
+  color: #D2D2D2;
+}
+
+table{
+  border-spacing: 0px;
+  border-collapse: collapse;
+}
+
+.css-83ijpv-MuiTypography-root {
+  color: #444444 !important;
+}
+
+a {
+  text-decoration: none;
+  color: #3071E7;
 }

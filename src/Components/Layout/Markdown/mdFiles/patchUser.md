@@ -33,6 +33,7 @@ curl:
 curl -X 'PATCH' \
   'http://localhost:9778/api/v1/users/21' \
   -H 'accept: application/json' \
+  -H 'Authorization: Bearer eyJ*********E9s' \
   -H 'Content-Type: application/json' \
   -d '{
   "roles": [

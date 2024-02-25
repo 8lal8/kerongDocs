@@ -42,6 +42,16 @@ export const markdownConfig = {
                 postUser: 'postUser.md',
                 deleteRole: 'deleteRole.md',
             },
+            identifiers: {
+              getIdentifiers: "getIdentif.md",
+                getIdentifiersId: "getIdentifId.md",
+                getTypeIdentifiers: "getTypeIdentif.md",
+                getTypeIdentifiersId: "getTypeIdentifId.md",
+                patchIdentifiersId: "patchIdentifId.md",
+                patchTypeIdentifiers: "patchTypeIdentifId.md",
+                postIdentifiers: "postIdentif.md",
+                postTypeIdentifiers: "postIdentifType.md"
+            },
             objectsDescription: 'descriptionObjects.md',
         },
         equipment: {
