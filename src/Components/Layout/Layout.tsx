@@ -108,7 +108,7 @@ const Layout = () => {
                     minHeight: '100vh',
                 }}
             >
-                <div style={{ color: 'white' }}>
+                <div style={{ color: '#D2D2D2' }}>
                     <Header
                         textHeader={`${headerText() === undefined ? '' : headerText()}`}
                     />
@@ -116,7 +116,7 @@ const Layout = () => {
                 <div>
                     <div
                         style={{
-                            color: 'white',
+                            color: '#D2D2D2',
                             flex: 1,
                             overflowY: 'auto',
                             height: '100%',
@@ -150,32 +150,32 @@ const Layout = () => {
 
                     <div style={{display:"flex", flexDirection:"column", justifyContent: "start", padding:"10px", paddingLeft: "30px"}}>
                         <div style={{margin: 0, padding: 0}}><h4 style={{margin:3, padding:0, color: "#999"}}>Может быть интересно</h4></div>
-                        <div style={{display: "flex", alignItems: "center"}}><h5 style={{margin:3, padding:0}}>Тестовая среда(Swagger)</h5><LinkLogo style={{height: "20px", width:"20px"}}/></div>
-                        <div style={{display: "flex", alignItems: "center"}}><h5 style={{margin:3, padding:0}}>dev.kerong.ru</h5><LinkLogo style={{height: "20px", width:"20px"}}/></div>
-                        <div style={{display: "flex", alignItems: "center"}}><h5 style={{margin:3, padding:0}}>kerong.ru</h5><LinkLogo style={{height: "20px", width:"20px"}}/></div>
+                        <div style={{display: "flex", alignItems: "center"}}><h5 style={{margin:3, padding:0, color:"#D2D2D2"}}>Тестовая среда(Swagger)</h5><LinkLogo style={{height: "20px", width:"20px"}}/></div>
+                        <div style={{display: "flex", alignItems: "center"}}><h5 style={{margin:3, padding:0, color:"#D2D2D2"}}>dev.kerong.ru</h5><LinkLogo style={{height: "20px", width:"20px"}}/></div>
+                        <div style={{display: "flex", alignItems: "center"}}><h5 style={{margin:3, padding:0, color:"#D2D2D2"}}>kerong.ru</h5><LinkLogo style={{height: "20px", width:"20px"}}/></div>
 
                     </div>
                     <div style={{display:"flex", flexDirection:"column", justifyContent: "start", padding:"10px", paddingLeft: "30px"}}>
                         <div style={{margin: 0, padding: 0}}><h4 style={{margin:3, padding:0, color: "#999"}}>ПО и оборудование</h4></div>
-                        <div style={{display: "flex", alignItems: "center"}}><h5 style={{margin:3, padding:0}}>Приобрести API</h5><LinkLogo style={{height: "20px", width:"20px"}}/></div>
-                        <div style={{display: "flex", alignItems: "center"}}><h5 style={{margin:3, padding:0}}>Платы KR-BU</h5><LinkLogo style={{height: "20px", width:"20px"}}/></div>
-                        <div style={{display: "flex", alignItems: "center"}}><h5 style={{margin:3, padding:0}}>Платы KR-CU</h5><LinkLogo style={{height: "20px", width:"20px"}}/></div>
-                        <div style={{display: "flex", alignItems: "center"}}><h5 style={{margin:3, padding:0}}>Каталог замков</h5><LinkLogo style={{height: "20px", width:"20px"}}/></div>
+                        <div style={{display: "flex", alignItems: "center"}}><h5 style={{margin:3, padding:0, color:"#D2D2D2"}}>Приобрести API</h5><LinkLogo style={{height: "20px", width:"20px"}}/></div>
+                        <div style={{display: "flex", alignItems: "center"}}><h5 style={{margin:3, padding:0, color:"#D2D2D2"}}>Платы KR-BU</h5><LinkLogo style={{height: "20px", width:"20px"}}/></div>
+                        <div style={{display: "flex", alignItems: "center"}}><h5 style={{margin:3, padding:0, color:"#D2D2D2"}}>Платы KR-CU</h5><LinkLogo style={{height: "20px", width:"20px"}}/></div>
+                        <div style={{display: "flex", alignItems: "center"}}><h5 style={{margin:3, padding:0, color:"#D2D2D2"}}>Каталог замков</h5><LinkLogo style={{height: "20px", width:"20px"}}/></div>
                     </div>
                     <div style={{display:"flex", flexDirection:"column", justifyContent: "start", padding:"10px", paddingLeft: "30px"}}>
                         <div style={{margin: 0, padding: 0}}><h4 style={{margin:3, padding:0, color: "#999"}}>Информация</h4></div>
-                        <div style={{display: "flex", alignItems: "center"}}><h5 style={{margin:3, padding:0}}>Задать технический вопрос</h5><LinkLogo style={{height: "20px", width:"20px"}}/></div>
-                        <div style={{display: "flex", alignItems: "center"}}><h5 style={{margin:3, padding:0}}>Вопросы по приобретению</h5><LinkLogo style={{height: "20px", width:"20px"}}/></div>
-                        <div style={{display: "flex", alignItems: "center"}}><h5 style={{margin:3, padding:0}}>Разработка под ключ</h5><LinkLogo style={{height: "20px", width:"20px"}}/></div>
-                        <div style={{display: "flex", alignItems: "center"}}><h5 style={{margin:3, padding:0}}>Нашли ошибку?</h5><LinkLogo style={{height: "20px", width:"20px"}}/></div>
+                        <div style={{display: "flex", alignItems: "center"}}><h5 style={{margin:3, padding:0, color:"#D2D2D2"}}>Задать технический вопрос</h5><LinkLogo style={{height: "20px", width:"20px"}}/></div>
+                        <div style={{display: "flex", alignItems: "center"}}><h5 style={{margin:3, padding:0, color:"#D2D2D2"}}>Вопросы по приобретению</h5><LinkLogo style={{height: "20px", width:"20px"}}/></div>
+                        <div style={{display: "flex", alignItems: "center"}}><h5 style={{margin:3, padding:0, color:"#D2D2D2"}}>Разработка под ключ</h5><LinkLogo style={{height: "20px", width:"20px"}}/></div>
+                        <div style={{display: "flex", alignItems: "center"}}><h5 style={{margin:3, padding:0, color:"#D2D2D2"}}>Нашли ошибку?</h5><LinkLogo style={{height: "20px", width:"20px"}}/></div>
 
                     </div>
 </div>
 
 
                     <div style={{display:"flex", flexDirection:"column", justifyContent: "start", padding:"10px", paddingLeft: "30px", maxWidth:"320px"}}>
-                        <div style={{display: "flex", alignItems: "center"}}><KerongLogo style={{color: "white"}}/></div>
-                        <div style={{display: "flex", alignItems: "center"}}><h5>© 2024 KERONG Россия. Официальный дистрибьютор Kerong на территории России и СНГ.</h5></div>
+                        <div style={{display: "flex", alignItems: "center"}}><h5 style={{margin:3, padding:0, color:"#D2D2D2"}}>© 2024 KERONG Россия.</h5></div>
+                        <div style={{display: "flex", alignItems: "center"}}><h5 style={{margin:3, padding:0, color:"#D2D2D2"}}>Официальный дистрибьютор Kerong на территории России и СНГ.</h5></div>
                     </div>
                 </div>
             </div>
