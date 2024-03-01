@@ -2,7 +2,7 @@
  * Copyright (c) 2023.
  * @author Smirnovskiy Mikhail
  */
-import { Box, Divider, Drawer, List } from '@mui/material'
+import { Box, Divider, Drawer, List, SwipeableDrawer } from '@mui/material'
 import React, { useState } from 'react'
 import { ReactComponent as KerongLogo } from '../../../src/Components/assets/kerong-logo.svg'
 import ListSubheader from '@mui/material/ListSubheader'
@@ -17,12 +17,28 @@ export interface IDrawerMenuProps {
     onClose: () => void
 }
 export const DrawerMenu: React.FC<IDrawerMenuProps> = ({ open, onClose }) => {
+    const [state, setState] = React.useState(false)
+    const toggleDrawer =
+        (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
+            if (
+                event &&
+                event.type === 'keydown' &&
+                ((event as React.KeyboardEvent).key === 'Tab' ||
+                    (event as React.KeyboardEvent).key === 'Shift')
+            ) {
+                return
+            }
+
+            setState(open)
+        }
+
     return (
-        <Drawer
+        <SwipeableDrawer
             variant={'temporary'}
             anchor="left"
             open={open}
             onClose={onClose}
+            onOpen={toggleDrawer(true)}
             style={{ zIndex: 10 }}
         >
             <Box
@@ -74,6 +90,6 @@ export const DrawerMenu: React.FC<IDrawerMenuProps> = ({ open, onClose }) => {
                     <Divider />
                 </List>
             </Box>
-        </Drawer>
+        </SwipeableDrawer>
     )
 }
