@@ -6,11 +6,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #282c34;
+  overflow-x:hidden;
 
 }
 
 html{
   background-color: #282c34;
+  overflow-x:hidden;
 }
 
 code {
@@ -20,28 +22,38 @@ code {
 
 thead {
   padding: 5px;
-  color: #D2D2D2
-;
+  color: #D2D2D2;
+  flex: 1;
+  flex-wrap: wrap;
+  border-spacing: 0px;
 }
 tbody {
-
-  color: #D2D2D2
-;
+  color: #D2D2D2;
+  white-space:pre-wrap;
+  flex: 1;
+  flex-wrap: wrap;
+  border-spacing: 0px;
 }
 
 pre {
   border: 1px solid grey;
   border-radius: 10px;
   padding: 10px;
-  color: #D2D2D2
-;
+  color: #D2D2D2;
+  white-space:pre-wrap;
+  flex: 1;
+  flex-wrap: wrap;
+  border-spacing: 0px;
 }
 
 th {
   border: 1px solid grey;
   padding: 5px;
-  color: #D2D2D2
-;
+  color: #D2D2D2;
+  white-space:pre-wrap;
+  flex: 1;
+  flex-wrap: wrap;
+  border-spacing: 0px;
 }
 
 td {
@@ -49,11 +61,18 @@ td {
   border: 1px solid grey;
   padding: 6px;
   color: #D2D2D2;
+  white-space:pre-wrap;
+  flex: 1;
+  flex-wrap: wrap;
+  border-spacing: 0px;
 }
 
 table{
+  flex: 1;
+  flex-wrap: wrap;
   border-spacing: 0px;
   border-collapse: collapse;
+  white-space:pre-wrap;
 }
 
 .css-83ijpv-MuiTypography-root {
@@ -63,4 +82,10 @@ table{
 a {
   text-decoration: none;
   color: #3071E7;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  width: auto;
 }

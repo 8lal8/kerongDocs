@@ -1,16 +1,19 @@
 import './index.scss'
 import Menu from '../Menu/Menu'
 import Header from '../Header/Header'
-import React, {useState} from 'react'
-import {Link, Outlet, useLocation} from 'react-router-dom'
-import {ReactComponent as KerongLogo} from "../assets/kerong-logo-no-space.svg";
-import {ReactComponent as LinkLogo} from "../assets/icon_place.svg";
-import {TechDialog} from "../Dialogs/TechDialog/TechDialog";
-import {BuyQuestionDialog} from "../Dialogs/BuyQuestionDialog/BuyQuestionDialog";
+import React, { useState } from 'react'
+import { Link, Outlet, useLocation } from 'react-router-dom'
+import { ReactComponent as KerongLogo } from '../assets/kerong-logo-no-space.svg'
+import { ReactComponent as LinkLogo } from '../assets/icon_place.svg'
+import { TechDialog } from '../Dialogs/TechDialog/TechDialog'
+import { BuyQuestionDialog } from '../Dialogs/BuyQuestionDialog/BuyQuestionDialog'
+import Button from '@mui/material/Button'
+import { DrawerMenu } from '../Menu/DrawerMenu'
+import { useMediaQuery } from '@mui/material'
 const Layout = () => {
     const [openTechDialog, setOpenTechDialog] = useState(false)
     const [openBuyQuestionDialog, setOpenBuyQuestionDialog] = useState(false)
-
+    const matches = useMediaQuery('(min-width:1080px)')
 
     const location = useLocation()
     const headerText = () => {
@@ -99,7 +102,8 @@ const Layout = () => {
                 text = 'Метод получения списка типов идентификаторов'
                 break
             case '/get-type-identif-id':
-                text = 'Метод получения информации о типе идентификатора по его id '
+                text =
+                    'Метод получения информации о типе идентификатора по его id '
                 break
             case '/post-identif':
                 text = 'Метод создания нового идентификатора'
@@ -117,7 +121,430 @@ const Layout = () => {
         return text
     }
 
-    return (
+    return !matches ? (
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                backgroundColor: '#282c34',
+            }}
+        >
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    width: '100%',
+                    backgroundColor: '#282c34',
+                    minHeight: '100vh',
+                }}
+            >
+                <div style={{ color: '#D2D2D2' }}>
+                    <Header
+                        textHeader={`${headerText() === undefined ? '' : headerText()}`}
+                    />
+                </div>
+
+                <div
+                    style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        color: '#D2D2D2',
+                        flex: 1,
+                        overflowY: 'auto',
+                        paddingLeft: '10px',
+                        paddingRight: '10px',
+                        paddingTop: '300px',
+                        marginBottom: '20px',
+                        minHeight: '60vh',
+                        whiteSpace: 'pre-wrap',
+                    }}
+                >
+                    <Outlet />
+                </div>
+
+                <div
+                    style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        color: 'white',
+                        flex: 1,
+                        height: '100%',
+                        backgroundColor: '#20232a',
+                        marginBottom: 0,
+                        minHeight: '120px',
+                        padding: '35px',
+                    }}
+                >
+                    <div
+                        style={{
+                            display: 'flex',
+                            justifyContent: 'flex-start',
+                            flexDirection: 'column',
+                        }}
+                    >
+                        <div
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'start',
+                                padding: '10px',
+                                paddingLeft: '30px',
+                            }}
+                        >
+                            <div style={{ margin: 0, padding: 0 }}>
+                                <h4
+                                    style={{
+                                        margin: 3,
+                                        padding: 0,
+                                        color: '#999',
+                                    }}
+                                >
+                                    Может быть интересно
+                                </h4>
+                            </div>
+
+                            <Link
+                                to={
+                                    'http://dev.kerong.ru:9777/api/v1/docs/swagger-ui/index.html'
+                                }
+                            >
+                                <div
+                                    style={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                    }}
+                                >
+                                    <h5
+                                        style={{
+                                            margin: 3,
+                                            padding: 0,
+                                            color: '#D2D2D2',
+                                        }}
+                                    >
+                                        Интерактивная документация (Swagger)
+                                    </h5>
+                                    <LinkLogo
+                                        style={{
+                                            height: '20px',
+                                            width: '20px',
+                                        }}
+                                    />
+                                </div>
+                            </Link>
+                            <Link to={'https://dev.kerong.ru/'}>
+                                <div
+                                    style={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                    }}
+                                >
+                                    <h5
+                                        style={{
+                                            margin: 3,
+                                            padding: 0,
+                                            color: '#D2D2D2',
+                                        }}
+                                    >
+                                        dev.kerong.ru
+                                    </h5>
+                                    <LinkLogo
+                                        style={{
+                                            height: '20px',
+                                            width: '20px',
+                                        }}
+                                    />
+                                </div>
+                            </Link>
+                            <Link to={'https://kerong.ru/'}>
+                                <div
+                                    style={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                    }}
+                                >
+                                    <h5
+                                        style={{
+                                            margin: 3,
+                                            padding: 0,
+                                            color: '#D2D2D2',
+                                        }}
+                                    >
+                                        kerong.ru
+                                    </h5>
+                                    <LinkLogo
+                                        style={{
+                                            height: '20px',
+                                            width: '20px',
+                                        }}
+                                    />
+                                </div>
+                            </Link>
+                        </div>
+                        <div
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'start',
+                                padding: '10px',
+                                paddingLeft: '30px',
+                            }}
+                        >
+                            <div style={{ margin: 0, padding: 0 }}>
+                                <h4
+                                    style={{
+                                        margin: 3,
+                                        padding: 0,
+                                        color: '#999',
+                                    }}
+                                >
+                                    ПО и оборудование
+                                </h4>
+                            </div>
+                            <Link
+                                to={
+                                    'https://kerong.ru/onlayn-zamkovaya-sistema-kerong/'
+                                }
+                            >
+                                <div
+                                    style={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                    }}
+                                >
+                                    <h5
+                                        style={{
+                                            margin: 3,
+                                            padding: 0,
+                                            color: '#D2D2D2',
+                                        }}
+                                    >
+                                        Приобрести API
+                                    </h5>
+                                    <LinkLogo
+                                        style={{
+                                            height: '20px',
+                                            width: '20px',
+                                        }}
+                                    />
+                                </div>
+                            </Link>
+                            <Link
+                                to={
+                                    'https://kerong.ru/product-category/zamki-dlya-postamatov/platy-upravleniya/'
+                                }
+                            >
+                                <div
+                                    style={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                    }}
+                                >
+                                    <h5
+                                        style={{
+                                            margin: 3,
+                                            padding: 0,
+                                            color: '#D2D2D2',
+                                        }}
+                                    >
+                                        Платы управления замками
+                                    </h5>
+                                    <LinkLogo
+                                        style={{
+                                            height: '20px',
+                                            width: '20px',
+                                        }}
+                                    />
+                                </div>
+                            </Link>
+                            <Link
+                                to={
+                                    'https://kerong.ru/product-category/zamki-dlya-postamatov/'
+                                }
+                            >
+                                <div
+                                    style={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                    }}
+                                >
+                                    <h5
+                                        style={{
+                                            margin: 3,
+                                            padding: 0,
+                                            color: '#D2D2D2',
+                                        }}
+                                    >
+                                        Каталог замков
+                                    </h5>
+                                    <LinkLogo
+                                        style={{
+                                            height: '20px',
+                                            width: '20px',
+                                        }}
+                                    />
+                                </div>
+                            </Link>
+                        </div>
+                        <div
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'start',
+                                padding: '10px',
+                                paddingLeft: '30px',
+                            }}
+                        >
+                            <div style={{ margin: 0, padding: 0 }}>
+                                <h4
+                                    style={{
+                                        margin: 3,
+                                        padding: 0,
+                                        color: '#999',
+                                    }}
+                                >
+                                    Информация
+                                </h4>
+                            </div>
+                            <div
+                                onClick={() => setOpenTechDialog(true)}
+                                style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    cursor: 'pointer',
+                                }}
+                            >
+                                <h5
+                                    style={{
+                                        margin: 3,
+                                        padding: 0,
+                                        color: '#D2D2D2',
+                                    }}
+                                >
+                                    Задать технический вопрос
+                                </h5>
+                                <LinkLogo
+                                    style={{ height: '20px', width: '20px' }}
+                                />
+                            </div>
+                            <div
+                                onClick={() => setOpenBuyQuestionDialog(true)}
+                                style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                }}
+                            >
+                                <h5
+                                    style={{
+                                        margin: 3,
+                                        padding: 0,
+                                        color: '#D2D2D2',
+                                    }}
+                                >
+                                    Вопросы по приобретению
+                                </h5>
+                                <LinkLogo
+                                    style={{ height: '20px', width: '20px' }}
+                                />
+                            </div>
+                            <Link
+                                to={
+                                    'https://kerong.ru/razrabotka-programmnogo-obespecheniya/'
+                                }
+                            >
+                                <div
+                                    style={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                    }}
+                                >
+                                    <h5
+                                        style={{
+                                            margin: 3,
+                                            padding: 0,
+                                            color: '#D2D2D2',
+                                        }}
+                                    >
+                                        Разработка под ключ
+                                    </h5>
+                                    <LinkLogo
+                                        style={{
+                                            height: '20px',
+                                            width: '20px',
+                                        }}
+                                    />
+                                </div>
+                            </Link>
+                            <div
+                                style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                }}
+                            >
+                                <h5
+                                    style={{
+                                        margin: 3,
+                                        padding: 0,
+                                        color: '#D2D2D2',
+                                    }}
+                                >
+                                    Нашли ошибку?
+                                </h5>
+                                <LinkLogo
+                                    style={{ height: '20px', width: '20px' }}
+                                />
+                            </div>
+                        </div>
+                        <TechDialog
+                            open={openTechDialog}
+                            onClose={() => setOpenTechDialog(false)}
+                        />
+                        <BuyQuestionDialog
+                            open={openBuyQuestionDialog}
+                            onClose={() => setOpenBuyQuestionDialog(false)}
+                        />
+                    </div>
+
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'start',
+                            padding: '10px',
+                            marginTop: '20px',
+                            paddingLeft: '30px',
+                            maxWidth: '320px',
+                        }}
+                    >
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                            <h5
+                                style={{
+                                    margin: 3,
+                                    padding: 0,
+                                    color: '#D2D2D2',
+                                }}
+                            >
+                                © 2024 KERONG Россия.
+                            </h5>
+                        </div>
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                            <h5
+                                style={{
+                                    margin: 3,
+                                    padding: 0,
+                                    color: '#D2D2D2',
+                                }}
+                            >
+                                Официальный дистрибьютор Kerong на территории
+                                России и СНГ.
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    ) : (
         <div
             style={{
                 display: 'flex',
@@ -152,60 +579,391 @@ const Layout = () => {
                             height: '100%',
                             paddingRight: '20px',
                             paddingLeft: '40px',
-                            paddingTop: '120px',
-                            marginBottom: "20px",
-                            minHeight: "60vh"
+                            paddingTop: '180px',
+                            marginBottom: '20px',
+                            minHeight: '60vh',
                         }}
                     >
                         <Outlet />
                     </div>
-
                 </div>
                 <div
                     style={{
-                        display:"flex",
-                        justifyContent: "space-between",
-                        flexDirection: "row",
-                        alignItems: "start",
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        flexDirection: 'row',
+                        alignItems: 'start',
                         color: 'white',
                         flex: 1,
                         height: '100%',
-                        backgroundColor: "#20232a",
+                        backgroundColor: '#20232a',
                         marginBottom: 0,
-                        minHeight: "120px",
-                        padding:"35px"
+                        minHeight: '120px',
+                        padding: '35px',
                     }}
                 >
-                    <div style={{display:"flex", justifyContent: "flex-start", flexDirection: "row"}}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            justifyContent: 'flex-start',
+                            flexDirection: 'row',
+                        }}
+                    >
+                        <div
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'start',
+                                padding: '10px',
+                                paddingLeft: '30px',
+                            }}
+                        >
+                            <div style={{ margin: 0, padding: 0 }}>
+                                <h4
+                                    style={{
+                                        margin: 3,
+                                        padding: 0,
+                                        color: '#999',
+                                    }}
+                                >
+                                    Может быть интересно
+                                </h4>
+                            </div>
 
-                    <div style={{display:"flex", flexDirection:"column", justifyContent: "start", padding:"10px", paddingLeft: "30px"}}>
-                        <div style={{margin: 0, padding: 0}}><h4 style={{margin:3, padding:0, color: "#999"}}>Может быть интересно</h4></div>
-                        <Link to={"http://dev.kerong.ru:9777/api/v1/docs/swagger-ui/index.html"}><div style={{display: "flex", alignItems: "center"}}><h5 style={{margin:3, padding:0, color:"#D2D2D2"}}>Интерактивная документация (Swagger)</h5><LinkLogo style={{height: "20px", width:"20px"}}/></div></Link>
-                        <Link to={"https://dev.kerong.ru/"}><div style={{display: "flex", alignItems: "center"}}><h5 style={{margin:3, padding:0, color:"#D2D2D2"}}>dev.kerong.ru</h5><LinkLogo style={{height: "20px", width:"20px"}}/></div></Link>
-                        <Link to={"https://kerong.ru/"}><div style={{display: "flex", alignItems: "center"}}><h5 style={{margin:3, padding:0, color:"#D2D2D2"}}>kerong.ru</h5><LinkLogo style={{height: "20px", width:"20px"}}/></div></Link>
+                            <Link
+                                to={
+                                    'http://dev.kerong.ru:9777/api/v1/docs/swagger-ui/index.html'
+                                }
+                            >
+                                <div
+                                    style={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                    }}
+                                >
+                                    <h5
+                                        style={{
+                                            margin: 3,
+                                            padding: 0,
+                                            color: '#D2D2D2',
+                                        }}
+                                    >
+                                        Интерактивная документация (Swagger)
+                                    </h5>
+                                    <LinkLogo
+                                        style={{
+                                            height: '20px',
+                                            width: '20px',
+                                        }}
+                                    />
+                                </div>
+                            </Link>
+                            <Link to={'https://dev.kerong.ru/'}>
+                                <div
+                                    style={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                    }}
+                                >
+                                    <h5
+                                        style={{
+                                            margin: 3,
+                                            padding: 0,
+                                            color: '#D2D2D2',
+                                        }}
+                                    >
+                                        dev.kerong.ru
+                                    </h5>
+                                    <LinkLogo
+                                        style={{
+                                            height: '20px',
+                                            width: '20px',
+                                        }}
+                                    />
+                                </div>
+                            </Link>
+                            <Link to={'https://kerong.ru/'}>
+                                <div
+                                    style={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                    }}
+                                >
+                                    <h5
+                                        style={{
+                                            margin: 3,
+                                            padding: 0,
+                                            color: '#D2D2D2',
+                                        }}
+                                    >
+                                        kerong.ru
+                                    </h5>
+                                    <LinkLogo
+                                        style={{
+                                            height: '20px',
+                                            width: '20px',
+                                        }}
+                                    />
+                                </div>
+                            </Link>
+                        </div>
+                        <div
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'start',
+                                padding: '10px',
+                                paddingLeft: '30px',
+                            }}
+                        >
+                            <div style={{ margin: 0, padding: 0 }}>
+                                <h4
+                                    style={{
+                                        margin: 3,
+                                        padding: 0,
+                                        color: '#999',
+                                    }}
+                                >
+                                    ПО и оборудование
+                                </h4>
+                            </div>
+                            <Link
+                                to={
+                                    'https://kerong.ru/onlayn-zamkovaya-sistema-kerong/'
+                                }
+                            >
+                                <div
+                                    style={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                    }}
+                                >
+                                    <h5
+                                        style={{
+                                            margin: 3,
+                                            padding: 0,
+                                            color: '#D2D2D2',
+                                        }}
+                                    >
+                                        Приобрести API
+                                    </h5>
+                                    <LinkLogo
+                                        style={{
+                                            height: '20px',
+                                            width: '20px',
+                                        }}
+                                    />
+                                </div>
+                            </Link>
+                            <Link
+                                to={
+                                    'https://kerong.ru/product-category/zamki-dlya-postamatov/platy-upravleniya/'
+                                }
+                            >
+                                <div
+                                    style={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                    }}
+                                >
+                                    <h5
+                                        style={{
+                                            margin: 3,
+                                            padding: 0,
+                                            color: '#D2D2D2',
+                                        }}
+                                    >
+                                        Платы управления замками
+                                    </h5>
+                                    <LinkLogo
+                                        style={{
+                                            height: '20px',
+                                            width: '20px',
+                                        }}
+                                    />
+                                </div>
+                            </Link>
+                            <Link
+                                to={
+                                    'https://kerong.ru/product-category/zamki-dlya-postamatov/'
+                                }
+                            >
+                                <div
+                                    style={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                    }}
+                                >
+                                    <h5
+                                        style={{
+                                            margin: 3,
+                                            padding: 0,
+                                            color: '#D2D2D2',
+                                        }}
+                                    >
+                                        Каталог замков
+                                    </h5>
+                                    <LinkLogo
+                                        style={{
+                                            height: '20px',
+                                            width: '20px',
+                                        }}
+                                    />
+                                </div>
+                            </Link>
+                        </div>
+                        <div
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'start',
+                                padding: '10px',
+                                paddingLeft: '30px',
+                            }}
+                        >
+                            <div style={{ margin: 0, padding: 0 }}>
+                                <h4
+                                    style={{
+                                        margin: 3,
+                                        padding: 0,
+                                        color: '#999',
+                                    }}
+                                >
+                                    Информация
+                                </h4>
+                            </div>
+                            <div
+                                onClick={() => setOpenTechDialog(true)}
+                                style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    cursor: 'pointer',
+                                }}
+                            >
+                                <h5
+                                    style={{
+                                        margin: 3,
+                                        padding: 0,
+                                        color: '#D2D2D2',
+                                    }}
+                                >
+                                    Задать технический вопрос
+                                </h5>
+                                <LinkLogo
+                                    style={{ height: '20px', width: '20px' }}
+                                />
+                            </div>
+                            <div
+                                onClick={() => setOpenBuyQuestionDialog(true)}
+                                style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                }}
+                            >
+                                <h5
+                                    style={{
+                                        margin: 3,
+                                        padding: 0,
+                                        color: '#D2D2D2',
+                                    }}
+                                >
+                                    Вопросы по приобретению
+                                </h5>
+                                <LinkLogo
+                                    style={{ height: '20px', width: '20px' }}
+                                />
+                            </div>
+                            <Link
+                                to={
+                                    'https://kerong.ru/razrabotka-programmnogo-obespecheniya/'
+                                }
+                            >
+                                <div
+                                    style={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                    }}
+                                >
+                                    <h5
+                                        style={{
+                                            margin: 3,
+                                            padding: 0,
+                                            color: '#D2D2D2',
+                                        }}
+                                    >
+                                        Разработка под ключ
+                                    </h5>
+                                    <LinkLogo
+                                        style={{
+                                            height: '20px',
+                                            width: '20px',
+                                        }}
+                                    />
+                                </div>
+                            </Link>
+                            <div
+                                style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                }}
+                            >
+                                <h5
+                                    style={{
+                                        margin: 3,
+                                        padding: 0,
+                                        color: '#D2D2D2',
+                                    }}
+                                >
+                                    Нашли ошибку?
+                                </h5>
+                                <LinkLogo
+                                    style={{ height: '20px', width: '20px' }}
+                                />
+                            </div>
+                        </div>
+                        <TechDialog
+                            open={openTechDialog}
+                            onClose={() => setOpenTechDialog(false)}
+                        />
+                        <BuyQuestionDialog
+                            open={openBuyQuestionDialog}
+                            onClose={() => setOpenBuyQuestionDialog(false)}
+                        />
                     </div>
-                    <div style={{display:"flex", flexDirection:"column", justifyContent: "start", padding:"10px", paddingLeft: "30px"}}>
-                        <div style={{margin: 0, padding: 0}}><h4 style={{margin:3, padding:0, color: "#999"}}>ПО и оборудование</h4></div>
-                        <Link to={"https://kerong.ru/onlayn-zamkovaya-sistema-kerong/"}><div style={{display: "flex", alignItems: "center"}}><h5 style={{margin:3, padding:0, color:"#D2D2D2"}}>Приобрести API</h5><LinkLogo style={{height: "20px", width:"20px"}}/></div></Link>
-                        <Link to={"https://kerong.ru/product-category/zamki-dlya-postamatov/platy-upravleniya/"}><div style={{display: "flex", alignItems: "center"}}><h5 style={{margin:3, padding:0, color:"#D2D2D2"}}>Платы управления замками</h5><LinkLogo style={{height: "20px", width:"20px"}}/></div></Link>
-                        <Link to={"https://kerong.ru/product-category/zamki-dlya-postamatov/"}><div style={{display: "flex", alignItems: "center"}}><h5 style={{margin:3, padding:0, color:"#D2D2D2"}}>Каталог замков</h5><LinkLogo style={{height: "20px", width:"20px"}}/></div></Link>
-                    </div>
-                    <div style={{display:"flex", flexDirection:"column", justifyContent: "start", padding:"10px", paddingLeft: "30px"}}>
-                        <div style={{margin: 0, padding: 0}}><h4 style={{margin:3, padding:0, color: "#999"}}>Информация</h4></div>
-                        <div onClick={()=> setOpenTechDialog(true)} style={{display: "flex", alignItems: "center", cursor:"pointer"}}><h5 style={{margin:3, padding:0, color:"#D2D2D2"}}>Задать технический вопрос</h5><LinkLogo style={{height: "20px", width:"20px"}}/></div>
-                        <div onClick={() => setOpenBuyQuestionDialog(true)} style={{display: "flex", alignItems: "center", cursor:"pointer"}}><h5 style={{margin:3, padding:0, color:"#D2D2D2"}}>Вопросы по приобретению</h5><LinkLogo style={{height: "20px", width:"20px"}}/></div>
-                        <Link to={"https://kerong.ru/razrabotka-programmnogo-obespecheniya/"}><div style={{display: "flex", alignItems: "center"}}><h5 style={{margin:3, padding:0, color:"#D2D2D2"}}>Разработка под ключ</h5><LinkLogo style={{height: "20px", width:"20px"}}/></div></Link>
-                        <div style={{display: "flex", alignItems: "center"}}><h5 style={{margin:3, padding:0, color:"#D2D2D2"}}>Нашли ошибку?</h5><LinkLogo style={{height: "20px", width:"20px"}}/></div>
 
-                    </div>
-                        <TechDialog open={openTechDialog} onClose={()=> setOpenTechDialog(false)}/>
-                        <BuyQuestionDialog open={openBuyQuestionDialog} onClose={() => setOpenBuyQuestionDialog(false)}/>
-</div>
-
-
-                    <div style={{display:"flex", flexDirection:"column", justifyContent: "start", padding:"10px", paddingLeft: "30px", maxWidth:"320px"}}>
-                        <div style={{display: "flex", alignItems: "center"}}><h5 style={{margin:3, padding:0, color:"#D2D2D2"}}>© 2024 KERONG Россия.</h5></div>
-                        <div style={{display: "flex", alignItems: "center"}}><h5 style={{margin:3, padding:0, color:"#D2D2D2"}}>Официальный дистрибьютор Kerong на территории России и СНГ.</h5></div>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'start',
+                            padding: '10px',
+                            paddingLeft: '30px',
+                            maxWidth: '320px',
+                        }}
+                    >
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                            <h5
+                                style={{
+                                    margin: 3,
+                                    padding: 0,
+                                    color: '#D2D2D2',
+                                }}
+                            >
+                                © 2024 KERONG Россия.
+                            </h5>
+                        </div>
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                            <h5
+                                style={{
+                                    margin: 3,
+                                    padding: 0,
+                                    color: '#D2D2D2',
+                                }}
+                            >
+                                Официальный дистрибьютор Kerong на территории
+                                России и СНГ.
+                            </h5>
+                        </div>
                     </div>
                 </div>
             </div>
