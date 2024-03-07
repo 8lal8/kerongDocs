@@ -13,6 +13,7 @@ import { About } from './Sections/About'
 import { KerongLcs } from './Sections/KerongLcs'
 import { KerongApi } from './Sections/KerongApi'
 import { Equipment } from './Sections/Equipment'
+import { UserGuide } from './Sections/UserGuide'
 
 function Menu() {
     const matches = useMediaQuery('(min-width:960px)')
@@ -58,11 +59,13 @@ function Menu() {
             >
                 <About />
                 <Divider />
-                <KerongLcs />
+                <Equipment />
                 <Divider />
                 <KerongApi />
                 <Divider />
-                <Equipment />
+                <KerongLcs />
+                <Divider />
+                <UserGuide />
                 <Divider />
             </List>
         </Box>

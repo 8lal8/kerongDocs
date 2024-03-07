@@ -6,7 +6,7 @@ export const GetIdentifiersId = () => {
     return (
         <MarkdownComponent
             markdownPath={markdownConfig.path}
-            markdownFileName={markdownConfig.sections.kerongApi.identifiers.getIdentifiersId}
+            markdownFileName={markdownConfig.sections.kerongApi.getOperations}
         />
     )
 }

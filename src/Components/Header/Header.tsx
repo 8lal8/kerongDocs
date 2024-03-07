@@ -38,7 +38,7 @@ const Header: FC<IHeaderProps> = ({ textHeader }) => {
                 }}
             />
 
-            <h1>{textHeader}</h1>
+            <h1>{textHeader}KERONG DOCS</h1>
         </div>
     )
 }

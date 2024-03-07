@@ -4,41 +4,23 @@ import ExpandLess from '@mui/icons-material/ExpandLess'
 import ExpandMore from '@mui/icons-material/ExpandMore'
 import Collapse from '@mui/material/Collapse'
 import List from '@mui/material/List'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import * as React from 'react'
+import { IDrawerMenuProps } from '../DrawerMenu.types'
+import { FC } from 'react'
+import { PATHS } from '../../../constants/routes'
 
-export const About = () => {
-    const [open, setOpen] = React.useState(false)
-    const handleClick = () => {
-        setOpen(!open)
-    }
+export const About: FC<IDrawerMenuProps> = ({ onClose }) => {
+    const handleClose = () => onClose
+    const navigate = useNavigate()
+
     return (
-        <>
-            <ListItemButton onClick={handleClick}>
-                <ListItemText primary="Описание проекта" />
-                {open ? <ExpandLess /> : <ExpandMore />}
-            </ListItemButton>
-
-            <Collapse in={open} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                    <Link
-                        to={'/architecture'}
-                        style={{ textDecoration: 'none', color: 'black' }}
-                    >
-                        <ListItemButton sx={{ pl: 4 }}>
-                            <ListItemText secondary="Архитектура системы" />
-                        </ListItemButton>
-                    </Link>
-                    <Link
-                        to={'/structure'}
-                        style={{ textDecoration: 'none', color: 'black' }}
-                    >
-                        <ListItemButton sx={{ pl: 4 }}>
-                            <ListItemText secondary="Общая структура системы" />
-                        </ListItemButton>
-                    </Link>
-                </List>
-            </Collapse>
-        </>
+        <List component="div" disablePadding>
+            <div onClick={() => navigate(PATHS.ABOUT)}>
+                <ListItemButton onClick={handleClose()} sx={{ pl: 2 }}>
+                    <ListItemText primary="Введение" />
+                </ListItemButton>
+            </div>
+        </List>
     )
 }

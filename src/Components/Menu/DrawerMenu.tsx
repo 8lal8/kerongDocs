@@ -11,6 +11,7 @@ import { About } from './Sections/About'
 import { KerongLcs } from './Sections/KerongLcs'
 import { KerongApi } from './Sections/KerongApi'
 import { Equipment } from './Sections/Equipment'
+import { UserGuide } from './Sections/UserGuide'
 
 export interface IDrawerMenuProps {
     open: boolean
@@ -80,13 +81,15 @@ export const DrawerMenu: React.FC<IDrawerMenuProps> = ({ open, onClose }) => {
                         </ListSubheader>
                     }
                 >
-                    <About />
+                    <About onClose={onClose} />
                     <Divider />
-                    <KerongLcs />
+                    <Equipment onClose={onClose} />
                     <Divider />
-                    <KerongApi />
+                    <KerongApi onClose={onClose} />
                     <Divider />
-                    <Equipment />
+                    <KerongLcs onClose={onClose} />
+                    <Divider />
+                    <UserGuide />
                     <Divider />
                 </List>
             </Box>
